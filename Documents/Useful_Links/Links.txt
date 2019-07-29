@@ -1,0 +1,5 @@
+*For how to schedule jobs*
+https://www.npmjs.com/package/node-schedule
+
+*For everything web*
+https://www.w3schools.com/

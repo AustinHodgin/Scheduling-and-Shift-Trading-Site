@@ -1,0 +1,65 @@
+<div class="container">
+  <h2 class="text-center"> Update shifts:</h2>
+  <div id="updateHelpShift">
+    <table class="table table-striped">
+      <thead>
+        <th> HELPDESK </th>
+    		<th> Current Start time </th>
+        <th> Current End time </th>
+        <th> New Start Time </th>
+        <th> New End Time </th>
+      </thead>
+      <tbody>
+        {{#each helpshifts}}
+        <tr>
+          <td>{{start_time}}</td>
+      		<td>{{end_time}}</td>
+          <td>New Start: <input type="text" name="newStartHelp" /></td>
+          <td>New End: <input type="text" name="newEndHelp" /></td>
+        <button class="btn btn-default" onclick="updateShift({{id}})">Update</button>
+          <td></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div> <!-- updateHelpShift -->
+
+  <div id="updateLabShift">
+    <table class="table table-striped">
+      <thead>
+        <th> Labs </th>
+        <th> Current Start time </th>
+        <th> Current End time </th>
+        <th> New Start Time </th>
+        <th> New End Time </th>
+      </thead>
+      <tbody>
+        {{#each labshifts}}
+        <tr>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>New Start: <input type="text" name="newStartLab" /></td>
+          <td>New End: <input type="text" name="newEndLab" /></td>
+        <button class="btn btn-default" onclick="updateShift({{id}})">Update</button>
+          <td></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div> <!-- updateLabShift -->
+
+</div>
+
+<script>
+function updateShift(id){
+  $.ajax({
+    url: '/shifts',
+    type: 'PUT',
+    data: $('#update-shift').serialize(),
+    success: function(result){
+      window.location.replace("./");
+    }
+  })
+};
+
+</script>

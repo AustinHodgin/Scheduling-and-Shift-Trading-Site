@@ -1,0 +1,11 @@
+<form class="col-md-4 col-md-offset-4" id="forgot" action="/forgot" method="post">
+		<input id="username" type="text" name="username" placeholder="username">
+		<input id="pass" type="password"  name="pass" placeholder="New Password">
+		<input id="confirm" type="password" name="confirm" placeholder="Confirm Password">
+		<input type="submit" class="btn btn-default" value="submit">
+		{{#if message}}
+			<div class="error">
+				<span style="color: red">{{message}}</span>
+			</div>
+		{{/if}}
+</form>

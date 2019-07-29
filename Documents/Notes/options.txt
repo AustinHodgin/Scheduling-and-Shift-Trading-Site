@@ -1,0 +1,10 @@
+The below information needs to be added to an options.js file for the password hashing and authentication to work.
+
+module.exports = {
+  connectionLimit : 10,
+  host            : 'engr-db',
+  port            : '3307',
+  user            : 'helpdesk',
+  password        : 'PASSWORD TO DATABASE',
+  database        : 'helpdesk'
+};

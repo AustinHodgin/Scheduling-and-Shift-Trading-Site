@@ -1,0 +1,20 @@
+<form class="col-md-4 col-md-offset-4" id="login" action="/login" method="post">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<input id="username" type="text" class="form-control" name="username" placeholder="username" style="width: 25%;">
+		</div>
+		</br>
+		<div class="input-group">
+			<span class=input-group-addon><i class="glyphicon glyphicon-lock"></i></span>
+			<input id="password" type="password" class="form-control" name="password" placeholder="Password" style="width: 25%;">
+		</div>
+		</br>
+		<input type="submit" class="btn btn-default" value="submit">
+		{{#if message}}
+		<div class="error">
+		<span style="color: red">{{message}}</span>
+		</div>
+{{/if}}
+			
+</form>
+					

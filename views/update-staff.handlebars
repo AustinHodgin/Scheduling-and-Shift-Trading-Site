@@ -1,0 +1,56 @@
+<div class="container">
+<h2 class="text-center"> Update {{staffMember.first_name}} {{staffMember.last_name}}:</h2>
+<hr />
+<form id="update-staff" action="/contacts" method="post">
+	<div class="form-group row">
+		<label for="first_name" class="col-xs-2 col-form-label" >First Name: </label>
+		<div class="col-sm-3">
+			<input type="text" name="first_name" value="{{staffMember.first_name}}">
+		</div>
+
+		<label for="last_name" class="col-xs-2 col-form-label" >Last Name: </label>
+		<div class="col-sm-3">
+			<input type="text" name="last_name" value="{{staffMember.last_name}}">
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="email" class="col-xs-2 col-form-label"> Email</label>
+			<div class="col-sm-3">
+			<input type="email" name="email" value="{{staffMember.email}}">
+		</div>
+		<label for="phone_number" class="col-xs-2 col-form-label">Phone Number:</label>
+		<div class="col-sm-3">
+			<input type="text" name="phone_number" value="{{staffMember.phone_number}}">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="type" class="col-xs-2 col-form-label">Type:</label>
+		<div class="col-sm-3">
+		<select name="type">
+			<option value="Lead">Lead</option>
+			<option value="Hybrid">Hybrid</option>
+			<option value="Labs">Labs</option>
+			<option value="Help Desk>Help Desk</option>
+		</select>
+		</div>
+	</div>
+	<button class="btn btn-default" onclick="updateStaff({{staffMember.id}})">Update</button>
+	</div>
+
+</form>
+</div>
+
+<script>
+function updateStaff(id){
+  $.ajax({
+    url: '/contacts/' + id,
+    type: 'PUT',
+    data: $('#update-staff').serialize(),
+    success: function(result){
+      window.location.replace("./");
+    }
+  })
+};
+
+</script>

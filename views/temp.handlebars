@@ -1,0 +1,180 @@
+<div class="table-responsive">
+  <h2 class="text-center"> Schedule </h2>
+  <div class="switchButtonStyle" style="padding:20px;">
+    <button onclick="switchSchedule()" id="switchButton" style="float: right">Switch to Labs</button>
+  </div>
+  <div id="helpdeskSchedule">
+    <table class="table table-striped">
+      <thead>
+        <th> HELPDESK </th>
+				{{#each helpStart}}
+					<th>{{start_time}}</th>
+				{{/each}}
+      </thead>
+      <tbody>
+				<tr>
+					<td>{{day1}} {{day1_w}}</td>
+					{{#each HelpDay1}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day2}}</td>
+					{{#each HelpDay2}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day3}}</td>
+					{{#each HelpDay3}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day4}}</td>
+					{{#each HelpDay4}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day5}}</td>
+					{{#each HelpDay5}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day6}}</td>
+					{{#each HelpDay6}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+
+				<tr>
+					<td>{{day7}}</td>
+					{{#each HelpDay7}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+      </tbody>
+
+    </table>
+  </div> <!-- helpdesk schedule -->
+
+   <div id="labSchedule">
+    <table class="table table-striped">
+      <thead>
+        <th> LABS </th>
+    		{{#each labStart}}
+					<th>{{start_time}}</th>
+				{{/each}}
+      </thead>
+			<tbody>
+				<tr>
+					<td>{{day1}}</td>
+					{{#each LabDay1}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day2}}</td>
+					{{#each LabDay2}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day3}}</td>
+					{{#each LabDay3}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day4}}</td>
+					{{#each LabDay4}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day5}}</td>
+					{{#each LabDay5}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+				<tr>
+					<td>{{day6}}</td>
+					{{#each LabDay6}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+
+				<tr>
+					<td>{{day7}}</td>
+					{{#each LabDay7}}
+					<td>{{first_name}} {{last_name}}</td>
+					{{/each}}
+				</tr>
+			</tbody>
+    </table>
+  </div> <!-- lab schedule -->
+</div> <!-- table div -->
+
+<div class="Current-Temps">
+  <h2 class=text-center>Today's Temps: {{day1}}</h2>
+  <table class='table table-striped'>
+    <thead>
+  		<th> Orginal Owner </th>
+      <th>Type </th>
+      <th> Start Time </th>
+      <th> End Time </th>
+      <th> Comments </th>
+    </thead>
+    <tbody>
+      {{#each todayTempedLab}}
+        <tr>
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </tr>
+      {{/each}}
+      {{#each todayTempedHelp}}
+        <tr>
+    			<td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </tr>
+      {{/each}}
+  </table>
+  <!-- <button type="submit" id="takeAllShifts">Take Shifts</button> -->
+</div> <!-- current temps -->
+
+<!-- ========== refacor into temp.js =============-->
+<script>
+/* Variables needed to show and hide schedules and chage button wording. */
+var help = document.getElementById('helpdeskSchedule');
+var lab = document.getElementById('labSchedule');
+var button = document.getElementById('switchButton');
+
+
+window.onload = function(){ /* On load, hide lab schedule. This will only display helpdesk */
+  lab.style.display = "none";
+  button.style.innerHTML = "Switch to Helpdesk";
+}
+/*Toggles between showing only helpdesk schedule and only lab schedule. */
+function switchSchedule(){
+  if(lab.style.display == 'block'){
+    help.style.display = 'block';
+    lab.style.display = 'none';
+    button.innerHTML = 'Switch to labs'
+  }else{
+    help.style.display = 'none';
+    lab.style.display = 'block';
+    button.innerHTML = 'Switch to Helpdesk';
+  }
+}
+</script>
+<!-- ======================================== -- >

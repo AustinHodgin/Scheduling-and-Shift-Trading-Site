@@ -1,0 +1,23 @@
+<div class="table-responsive">
+<h2 class="text-center"> Contacts </h2>
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+  </thead>
+  <tbody>
+		{{#if isAuthenticated}}
+    {{#each _Staff}}
+    <tr>
+      <td>{{first_name}} {{last_name}}</td>
+      <td>{{type}}</td>
+      <td>{{email}}</td>
+      <td>{{phone_number}}</td>
+    </tr>
+    {{/each}}
+		{{/if}}
+  </tbody>
+</table>
+</div>

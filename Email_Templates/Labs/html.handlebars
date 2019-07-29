@@ -1,0 +1,28 @@
+{{first_name}} {{last_name}},
+<br />
+Below are the current available temps for Labs:
+<br />
+<br>
+<table>
+<tr>
+    <th>Original Owner</th>
+    <th>Type</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Comments</th>
+</tr>
+{{#each temp}}
+    <tr>
+        <td>{{first_name}} {{last_name}}</td>
+        <td>{{shift_type}}</td>
+        <td>{{day}}</td>
+        <td>{{start_time}}</td>
+        <td>{{end_time}}</td>
+        <td>{{comments}}</td>
+    </tr>
+{{/each}}
+</table>
+<br />
+<br>
+To claim any of the above shifts you can go to COE Temp site located <a href="http://access.engr.oregonstate.edu:55667/temp">here</a>

@@ -1,0 +1,4 @@
+
+Current bugs that need to be fixed
+
+#2 Add button not showing on some pages when it should

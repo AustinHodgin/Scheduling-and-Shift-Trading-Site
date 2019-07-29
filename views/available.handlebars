@@ -1,0 +1,153 @@
+<div class="table-responsive">
+<h2 class="text-center"> Available Hours </h2>
+<table class='table table-striped'>
+  <thead>
+		<th> Orginal Owner </th>
+    <th> Type </th>
+    <th> Date </th>
+    <th> Start Time </th>
+    <th> End Time </th>
+    <th> Comments </th>
+  </thead>
+  <tbody>
+    {{#ifeq user_type "Labs"}}
+      {{#each tempedlabshifts}}
+      <tr>
+        <form id="takeLabshift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+	  <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </form
+      </tr>
+      {{/each}}
+    {{/ifeq}}
+
+    {{#ifeq user_type "Help Desk"}}
+      {{#each tempedhelpshifts}}
+      <tr>
+        <form id="takeHelpShift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+          <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+
+          </form>
+      </tr>
+      {{/each}}
+    {{/ifeq}}
+
+    {{#ifeq user_type "Hybrid"}}
+      {{#each tempedlabshifts}}
+      <tr>
+        <form id="takeLabshift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+          <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </form>
+      </tr>
+      {{/each}}
+      {{#each tempedhelpshifts}}
+      <tr>
+        <form id="takeHelpShift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+          <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </form>
+      </tr>
+      {{/each}}
+    {{/ifeq}}
+
+    {{#ifeq user_type "Lead"}}
+      {{#each tempedlabshifts}}
+      <tr>
+        <form id="takeLabshift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+          <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </form>
+      </tr>
+      {{/each}}
+      {{#each tempedhelpshifts}}
+      <tr>
+        <form id="takeHelpShift" action="/available" method="post">
+          <td>{{first_name}} {{last_name}}</td>
+          <td>{{shift_type}}</td>
+          <td>{{moment day format="dddd, MMMM Do"}}</td>
+          <td>{{start_time}}</td>
+          <td>{{end_time}}</td>
+          <td>{{comments}}</td>
+          <td><input type="hidden" name=hsid value="{{help_desk_schedule_id}}"/></td>
+          <td><input type="hidden" name=lsid value="{{lab_schedule_id}}"/></td>
+          <td><input type="hidden" name="shifttype" value="{{shift_type}}"/></td>
+          <td><input type="hidden" name="timestamp" value="{{time_stamp}}"/></td>
+          <td><input type="hidden" name="comments" value="{{comments}}"/></td>
+          <td><input type="hidden" name="originalowner" value="{{original_owner}}"/></td>
+          <td><input type="hidden" name="staffid" value="{{../user_id}}"/></td>
+          <td><input type="hidden" name="id" value="{{id}}"/></td>
+          <td><button type="submit" value="Submit" class="btnbtn-default">Take</button></td>
+        </form>
+      </tr>
+      {{/each}}
+    {{/ifeq}}
+  </tbody>
+</table>
+</div>

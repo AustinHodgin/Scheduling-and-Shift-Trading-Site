@@ -1,0 +1,46 @@
+<div class="table-responsive">
+<h2 class="text-center"> Contacts </h2>
+<table class="table table-striped">
+  <thead>
+    <th>Names</th>
+    <th>Type</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+  </thead>
+  <tbody>
+		{{#if isAuthenticated}}
+    {{#each _Staff}}
+    <tr>
+      <td>{{first_name}} {{last_name}}</td>
+      <td>{{type}}</td>
+      <td>{{email}}</td>
+      <td>{{phone_number}}</td>
+      <td> <a href="/contacts/{{id}}"> Update </a> </td> <!-- delete when login check is finished -->
+      <td> <button onClick="deleteStaff({{id}})">Delete</button><td> <!-- delete when login check is finished -->
+
+      <!-- {{#ifeq user_id id}} --> <!-- Checks login user id and only displays update button on that user -->
+	    <td> <a href="/contacts/{{id}}"> Update </a> </td>
+      <!-- {{/ifeq }} -->
+      <!-- {{#ifeq user_type "Lead"}} --> <!-- checks login user type and only displays delete button if they are lead -->
+	    <td> <button onClick="deleteStaff({{id}})">Delete</button><td>
+      <!-- {{/ifeq}} -->
+    </tr>
+    {{/each}}
+		{{/if}}
+  </tbody>
+</table>
+</div>
+
+<!-- ====== refactor into deletestaff.js ======= -->
+<script>
+function deleteStaff(id){
+  $.ajax({
+    url: '/contacts/' + id,
+    type: 'DELETE',
+    success: function(result){
+      window.location.reload(true);
+    }
+  })
+};
+</script>
+<!-- ======================================= -- >

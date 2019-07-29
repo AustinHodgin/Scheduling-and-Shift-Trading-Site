@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COE Computer Helpdesk Temp Site</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    {{#each jsscripts}}
+    <script type="text/javascript" src="static/{{this}}"></script>
+    {{/each}}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap hosted by MaxCDN -->
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<!-- <h3> Temp site </h3> -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> COE Computer Help Desk Temp Site </a>
+			</div>
+		<ul class="nav navbar-nav">
+
+			<li>
+				<a href="/temp">Home</a>
+			</li>
+			{{#if isAuthenticated}}
+			<li>
+					<a href="/staffhours">Temp Shift</a>
+			</li>
+			<li>
+					<a href="/available">Available Temp Shifts</a>
+			</li>
+			{{/if}}
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+
+			{{#ifeq user_type 'Lead'}}
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Add
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/createhelpschedule">Create Schedule Help Desk</a></li>
+					<li><a href="/createlabschedule">Create Schedule Labs</a></li>
+					<li><a href="/add_staff">Add Staff</a></li>
+					<li><a href="/updatecontacts">Update Contacts</a></li>
+				</ul>
+			</li>
+			{{/ifeq}}
+
+					{{#if isAuthenticated}}
+						<li><a href="/contacts"><span class="glyphicon glyphicon-phone-alt"></span> Contacts</a></li>
+						<li><a href="/contacts/{{user_id}}"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
+
+						<li><a href="/logout" data-toggle="modal"  ><span class="glyphicon glyphicon glyphicon-log-out"></span> logout</a></li>
+
+					{{else}}
+						<li><a href="#" data-toggle="modal" data-target="#loginModal" id="loginm" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				{{/if}}
+
+	 </ul> <!-- model list -->
+	<!-- modal -->
+	<div class="modal fade" id="loginModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"> Login </h4>
+				</div> <!-- header -->
+				<div class="modal-body">
+						<form class="form-horizontal" id="login" action="/login" method="post">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input id="username" type="text" class="form-control" name="username" placeholder="username">
+							</div>
+							<div class="input-group">
+								<span class=input-group-addon><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+							</div>
+							<input type="submit" class="btn btn-default" value="submit">
+						</form>
+							 {{#if message}}
+								<div class="error">
+									<span style="color: red">{{message}}</span>
+								</div>
+								{{/if}}
+						<a href="/forgot">forgot password</a>
+				</div> <!-- body -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"> Close</button>
+				</div> <!-- footer -->
+			</div> <!-- content -->
+			</div> <!-- dialog -->
+		</div> <!-- inside modal finish -->
+
+	</div>
+	</nav>
+
+	{{{body}}}
+
+</body>
+</html>

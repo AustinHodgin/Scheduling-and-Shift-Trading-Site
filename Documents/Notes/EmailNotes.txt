@@ -1,0 +1,7 @@
+For email to work you will need to create a creds.js file that contains the fallowing:
+
+module.exports = {user: 'coetempsite@gmail.com', pass: 'The Normal Help Desk Password'};
+
+
+The settings for configuring email is in the main.js file and will can be configured to be sent out at any time of day as many times as you need. You can find more information about setting the schedule here:
+https://www.npmjs.com/package/node-schedule

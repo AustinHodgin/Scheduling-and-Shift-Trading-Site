@@ -1,0 +1,9 @@
+*Not in order of priority*
+
+#3  Test for bugs
+#4  Added Form Verification
+#5  Add Flash Messages for success or failure
+#6  Add Temp to Select Person
+#7  Add ability to clear schedules from shift
+#9  Write documentation for the site
+#10  Comment rest of code

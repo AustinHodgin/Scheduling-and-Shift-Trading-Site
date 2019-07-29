@@ -1,0 +1,127 @@
+<div class="table-responsive">
+  <h2 class="text-center"> Create Helpdesk Schedule </h2>
+  <div id="createHelpdeskSchedule">
+	 <form id="addschedule" action=/createhelpschedule method="post">
+    <table class="table table-striped">
+      <thead>
+				<th>Help Desk</th>
+					{{#each HelpDeskHours}}
+					<th>
+						{{start_time}}
+					</th>
+					{{/each}}
+      </thead>
+
+      <tbody>
+        <tr>
+	        	<td>Monday</td>
+						{{#each MondayShifts}}
+	          <td>
+	            <select name="{{id}}">
+	               {{#each ../StaffHelp}}
+	              <option value="{{id}}">{{first_name}} {{last_name}}</option>
+	              {{/each}}
+	            </select>
+						</td>
+	        {{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Tuesday</td>
+						{{#each TuesdayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each../StaffHelp}}
+								<option value="{{id}}"> {{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Wednesday</td>
+						{{#each WednesdayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each ../StaffHelp}}
+								<option value="{{id}}"> {{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Thursday</td>
+						{{#each ThusdayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each ../StaffHelp}}
+								<option value="{{id}}"> {{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Friday</td>
+						{{#each FridayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each ../StaffHelp}}
+								<option value="{{id}}"> {{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Sautrday</td>
+						{{#each SaturdayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each ../StaffHelp}}
+								<option value="{{id}}"> {{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+				 <tr>
+						<td>Sunday</td>
+						{{#each SundayShifts}}
+						<td>
+							<select name="{{id}}">
+								{{#each ../StaffHelp}}
+								<option value="{{id}}">{{first_name}} {{last_name}} </option>
+								{{/each}}
+							</select>
+						</td>
+					{{/each}}
+				 </tr>
+
+      </tbody>
+			  </table>
+
+
+				</div>
+				</div> <!-- helpdesk schedule -->
+				</div> <!-- table-responsive -->
+
+
+				<div class="container">
+		  		<div class="row">
+
+							<label for="start">Start of Term: </label>
+							<input type="date" name="start">
+
+							<br />
+							<button type="submit" value="Submit" class="btnbtn-default">Submit</button>
+
+						</div>
+					</div>
+    </form>
